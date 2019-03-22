@@ -1,3 +1,5 @@
+The same the image provided by LinuxServer, but uses the development branch instead and gets rebuilt to include the latest updates to the Mylar development branch as they come out (You'll see meaningless comments in the dockerfile that are used to trigger dockerhub to rebuild).
+
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
 The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring :-
