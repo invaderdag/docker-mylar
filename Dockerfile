@@ -23,7 +23,7 @@ RUN \
 	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/evilhero/mylar/commits/master \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
- git clone https://github.com/evilhero/mylar.git /app/mylar && \
+ git clone -b development https://github.com/evilhero/mylar.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
  echo "**** cleanup ****" && \
