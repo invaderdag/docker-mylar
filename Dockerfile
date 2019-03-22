@@ -37,3 +37,5 @@ COPY root/ /
 # ports and volumes
 VOLUME /config /comics /downloads
 EXPOSE 8090
+
+#update 1
