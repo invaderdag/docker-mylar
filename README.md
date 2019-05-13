@@ -144,15 +144,6 @@ Below are the instructions for updating containers:
 * Start the new container: `docker start mylar`
 * You can also remove the old dangling images: `docker image prune`
 
-### Via Taisun auto-updater (especially useful if you don't remember the original parameters)
-* Pull the latest image at its tag and replace it with the same env variables in one shot:
-  ```
-  docker run --rm \
-  -v /var/run/docker.sock:/var/run/docker.sock taisun/updater \
-  --oneshot mylar
-  ```
-* You can also remove the old dangling images: `docker image prune`
-
 ### Via Docker Compose
 * Update all images: `docker-compose pull`
   * or update a single image: `docker-compose pull mylar`
@@ -160,8 +151,38 @@ Below are the instructions for updating containers:
   * or update a single container: `docker-compose up -d mylar`
 * You can also remove the old dangling images: `docker image prune`
 
+### Via Watchtower auto-updater (especially useful if you don't remember the original parameters)
+* Pull the latest image at its tag and replace it with the same env variables in one run:
+  ```
+  docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --run-once mylar
+  ```
+* You can also remove the old dangling images: `docker image prune`
+
+## Building locally
+
+If you want to make local modifications to these images for development purposes or just to customize the logic: 
+```
+git clone https://github.com/linuxserver/docker-mylar.git
+cd docker-mylar
+docker build \
+  --no-cache \
+  --pull \
+  -t linuxserver/mylar:latest .
+```
+
+The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
+```
+docker run --rm --privileged multiarch/qemu-user-static:register --reset
+```
+
+Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
+
 ## Versions
 
+* **08.05.19:** - Re-install requests pip package to downgrade urllib version suitable for mylar.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **22.02.19:** - Rebasing to alpine 3.9.
 * **11.02.19:** - Pipeline logic and multi arch.
