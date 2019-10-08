@@ -13,7 +13,7 @@ RUN \
 	git \
 	nodejs && \
  echo "**** install pip packages ****" && \
- pip install --no-cache-dir -U \
+ pip3 install --no-cache-dir -U \
 	comictagger \
 	configparser \
 	html5lib \
