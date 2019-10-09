@@ -14,6 +14,7 @@ RUN \
 	nodejs && \
  echo "**** install pip packages ****" && \
  pip install --no-cache-dir -U \
+ #       comictagger \
 	configparser \
 	html5lib \
 	requests \
