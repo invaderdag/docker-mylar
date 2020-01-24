@@ -39,4 +39,4 @@ COPY root/ /
 VOLUME /config /comics /downloads
 EXPOSE 8090
 
-#update 0.4
+#update 0.5
